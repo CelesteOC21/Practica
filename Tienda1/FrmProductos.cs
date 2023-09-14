@@ -48,7 +48,7 @@ namespace Tienda1
                 _manejadorProductos.GuardarProducto(entidadesProducto);
                 LlenarProducto("");
                 LimpiarCuadro();
-                ControlarBotones(true, false, false);
+                ControlarBotones(false, true, true, false);
                 ControlCuadros(false);
             }
             else
@@ -60,11 +60,12 @@ namespace Tienda1
 
        
 
-        private void ControlarBotones(Boolean nuevo, Boolean guardar, Boolean eliminar)
+        private void ControlarBotones(Boolean nuevo, Boolean guardar, Boolean eliminar, Boolean cancelar)
         {
             btnNuevo.Enabled = nuevo;
             btnGuardar.Enabled = guardar;
             btnEliminar.Enabled = eliminar;
+            btnCancelar.Enabled = cancelar;
         }
 
         private void ControlCuadros(Boolean estado)
@@ -96,23 +97,44 @@ namespace Tienda1
 
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-            ControlarBotones(true, true, false);
+            ControlarBotones(true, true, true, true);
             ControlCuadros(true);
             LlenarProducto("");
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            ControlarBotones(true, true, false);
+            ControlarBotones(false, true, false, true);
             ControlCuadros(true);
             txtNombre.Focus();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            ControlarBotones(false, false, true);
+            ControlarBotones(true, false, true, false);
             ControlCuadros(true);
             LimpiarCuadro();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            EliminarProducto();
+            LlenarProducto("");
+        }
+
+        private void EliminarProducto()
+        {
+            if (MessageBox.Show("Desea eliminar el producto seleccionado?", "Eliminar producto",
+               MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                var idProducto = int.Parse(dtgProductos.CurrentRow.Cells["id"].Value.ToString());
+                _manejadorProductos.EliminarProducto(idProducto);
+            }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

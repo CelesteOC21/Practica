@@ -32,6 +32,7 @@
             this.dtgProductos = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -42,7 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,7 +58,7 @@
             this.dtgProductos.Name = "dtgProductos";
             this.dtgProductos.RowHeadersWidth = 62;
             this.dtgProductos.RowTemplate.Height = 28;
-            this.dtgProductos.Size = new System.Drawing.Size(707, 367);
+            this.dtgProductos.Size = new System.Drawing.Size(707, 304);
             this.dtgProductos.TabIndex = 0;
             // 
             // label2
@@ -74,21 +75,29 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.btnEliminar);
-            this.panel1.Controls.Add(this.btnNuevo);
             this.panel1.Controls.Add(this.txtPrecio);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtDescripcion);
             this.panel1.Controls.Add(this.lblDescripcion);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtNombre);
-            this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Location = new System.Drawing.Point(750, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(512, 446);
             this.panel1.TabIndex = 10;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(351, 410);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(132, 36);
+            this.btnCancelar.TabIndex = 18;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // pictureBox1
             // 
@@ -105,18 +114,19 @@
             // 
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(248, 387);
+            this.btnEliminar.Location = new System.Drawing.Point(243, 410);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(102, 36);
             this.btnEliminar.TabIndex = 17;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnNuevo
             // 
             this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Location = new System.Drawing.Point(23, 387);
+            this.btnNuevo.Location = new System.Drawing.Point(18, 410);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(102, 36);
             this.btnNuevo.TabIndex = 16;
@@ -186,7 +196,7 @@
             // 
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(131, 387);
+            this.btnGuardar.Location = new System.Drawing.Point(126, 410);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(111, 36);
             this.btnGuardar.TabIndex = 9;
@@ -194,17 +204,17 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnCancelar
+            // btnCerrar
             // 
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(356, 387);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(132, 36);
-            this.btnCancelar.TabIndex = 18;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Location = new System.Drawing.Point(498, 410);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(132, 36);
+            this.btnCerrar.TabIndex = 19;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // FrmProductos
             // 
@@ -212,9 +222,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1280, 470);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtgProductos);
+            this.Controls.Add(this.btnGuardar);
             this.Name = "FrmProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -244,6 +259,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }
 

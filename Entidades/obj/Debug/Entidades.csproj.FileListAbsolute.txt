@@ -4,3 +4,9 @@ C:\Users\Celeste\Desktop\Tienda1\Entidades\obj\Debug\Entidades.csproj.AssemblyRe
 C:\Users\Celeste\Desktop\Tienda1\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\Celeste\Desktop\Tienda1\Entidades\obj\Debug\Entidades.dll
 C:\Users\Celeste\Desktop\Tienda1\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Celeste\Desktop\Practica\Entidades\bin\Debug\Entidades.dll
+C:\Users\Celeste\Desktop\Practica\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Celeste\Desktop\Practica\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\Celeste\Desktop\Practica\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Celeste\Desktop\Practica\Entidades\obj\Debug\Entidades.dll
+C:\Users\Celeste\Desktop\Practica\Entidades\obj\Debug\Entidades.pdb
