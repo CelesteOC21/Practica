@@ -58,7 +58,44 @@ namespace Tienda1
 
         }
 
-       
+        private void ActualizarProductos()
+        {
+            //Se crea una nueva instancia de la entidad DatosPersonales 
+            EntidadesProducto datosProducto = new EntidadesProducto();
+            ID = int.Parse(dtgProductos.CurrentRow.Cells["id"].Value.ToString());
+            datosProducto.Id = ID;
+            datosProducto.Nombre = txtNombre.Text;
+            datosProducto.Descripcion = txtDescripcion.Text;
+            datosProducto.Precio = double.Parse(txtPrecio.Text);
+
+            var validar = _manejadorProductos.ValidarDatosProducto(datosProducto);
+            //Si los datos son válidos (validar.Item1 es true), se llama al método _manejadorUsuario.ActualizarUsuario(datosPersonales)
+            //para actualizar el usuario en la base de datos.
+            if (validar.Item1)
+            {
+                _manejadorProductos.ActualizarProducto(datosProducto);
+                // se llama al método LlenarUsuario("") para volver a cargar los datos de los usuarios en el control dtgUsuarios,
+                LlenarProducto("");
+                // se llama al método LimpiarCuadro() para limpiar los controles de entrada de texto,
+                LimpiarCuadro();
+                ControlarBotones(true, false, false, true);
+                ControlCuadros(false);
+                //Se muestra un mensaje "Actualizado" en un cuadro de diálogo.
+                MessageBox.Show("Actualizado");
+                //Se realiza una pausa de 1 segundo utilizando Thread.Sleep(1000)
+                Thread.Sleep(1000);
+
+            }
+            else
+            {
+                MessageBox.Show(validar.Item2, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            guardando = true;
+
+        }
+
+
 
         private void ControlarBotones(Boolean nuevo, Boolean guardar, Boolean eliminar, Boolean cancelar)
         {
@@ -90,7 +127,7 @@ namespace Tienda1
             }
             else
             {
-
+                ActualizarProductos();
             }
             
         }
@@ -135,6 +172,17 @@ namespace Tienda1
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void dtgProductos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            ControlarBotones(false, true, true, false);
+            ControlCuadros(true);
+            txtNombre.Focus();
+            txtNombre.Text = dtgProductos.CurrentRow.Cells["nombre"].Value.ToString();
+            txtDescripcion.Text = dtgProductos.CurrentRow.Cells["descripcion"].Value.ToString();
+            txtPrecio.Text = dtgProductos.CurrentRow.Cells["precio"].Value.ToString();
+            guardando = false;
         }
     }
 }

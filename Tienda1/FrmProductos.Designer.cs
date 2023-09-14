@@ -60,6 +60,7 @@
             this.dtgProductos.RowTemplate.Height = 28;
             this.dtgProductos.Size = new System.Drawing.Size(707, 304);
             this.dtgProductos.TabIndex = 0;
+            this.dtgProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgProductos_CellContentClick_1);
             // 
             // label2
             // 
